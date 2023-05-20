@@ -37,7 +37,7 @@ const sendErrorDev = (err, req, res) => {
   }
 
   console.error('ERROR 💥', err);
-  return res.status(err.statusCode).render('error', {
+  return res.status(err.statusCode).json('error', {
     title: 'Something went wrong!',
     msg: err.message
   });
@@ -61,14 +61,14 @@ const sendErrorProd = (err, req, res) => {
 
   
   if (err.isOperational) {
-    return res.status(err.statusCode).render('error', {
+    return res.status(err.statusCode).json('error', {
       title: 'Something went wrong!',
       msg: err.message
     });
   }
   
   console.error('ERROR 💥', err);
-  return res.status(err.statusCode).render('error', {
+  return res.status(err.statusCode).json('error', {
     title: 'Something went wrong!',
     msg: 'Please try again later.'
   });
