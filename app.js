@@ -23,7 +23,6 @@ const limiter = rateLimit({
 app.use('/api', limiter)
   
 app.use(mongoSanitize())
-app.set('view engine', 'pug');
 
 app.use(xss())
   
