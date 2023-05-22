@@ -10,7 +10,7 @@ const newEmail = async (body) => {
   });
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: /*body.email*/ 'chidubemobinwanne@gmail.com',
+    to: body.email,
     subject: body.subject,
     text: JSON.stringify(body.text),
   };
